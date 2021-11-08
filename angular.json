@@ -1,7 +1,42 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "cli": {
+    "analytics": false
+  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-  }
+    "alliance-ngx": {
+      "projectType": "library",
+      "root": "projects/alliance-ngx",
+      "sourceRoot": "projects/alliance-ngx/src",
+      "prefix": "agx",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/alliance-ngx/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/alliance-ngx/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/alliance-ngx/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/alliance-ngx/src/test.ts",
+            "tsConfig": "projects/alliance-ngx/tsconfig.spec.json",
+            "karmaConfig": "projects/alliance-ngx/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "alliance-ngx"
 }

@@ -1,0 +1,136 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/*
+[]=========== Default styles ===========[]
+*/
+* {
+    box-sizing: border-box;
+    font-family: 'Whitney', sans-serif;
+    @apply text-white font-normal;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+    @apply bg-primary-dark;
+}
+
+hr {
+    appearance: none;
+    border: none;
+    border-radius: 1rem;
+    margin: 1rem 0;
+    height: 2px;
+    @apply bg-placeholder;
+}
+
+#app {
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    @apply font-sans font-bold tracking-wide;
+}
+
+h1 {
+    @apply text-5xl;
+}
+h2 {
+    @apply text-4xl;
+}
+h3 {
+    @apply text-3xl;
+}
+h4 {
+    @apply text-2xl;
+}
+h5 {
+    @apply text-xl;
+}
+h6 {
+    @apply text-lg;
+}
+
+input:not([type="checkbox"]) {
+    appearance: none;
+    @apply transition-all block w-full bg-primary rounded-sm px-2 py-1.5 outline-none border-2 border-transparent focus:border-placeholder-light;
+
+    /* Hide reveal password controls in MS Edge */
+    &::-ms-reveal {
+        display: none;
+    }
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+label {
+    @apply inline-block text-white-dark opacity-60 px-1 text-sm my-1;
+}
+
+/**
+[]=============================[]
+          Layout
+[]=============================[]
+*/
+.layout-table {
+    position: relative;
+    display: table;
+    width: 100%;
+
+    .layout-col {
+        display: table-cell;
+    }
+}
+
+/**
+[]=============================[]
+          Scrollbars
+[]=============================[]
+*/
+/* width */
+::-webkit-scrollbar {
+    height: 0.3em;
+    width: 0.3em;
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    @apply bg-placeholder;
+    border-radius: 1em;
+}
+
+::-webkit-scrollbar-track {
+    @apply bg-primary;
+}
+
+/**
+[]=============================[]
+            Links
+[]=============================[]
+*/
+a {
+    display: inline;
+    text-decoration: none;
+    color: inherit;
+    @apply transition-all;
+    // transition: all $animSpeedFast*1s ease;
+
+    &:hover {
+        @apply text-accent
+    }
+}
